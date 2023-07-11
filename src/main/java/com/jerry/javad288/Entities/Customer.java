@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -45,8 +46,17 @@ public class Customer {
     @JoinColumn(name = "Division_ID")
     private Division division;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<Cart> carts;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customers")
+    private Set<Cart> carts = new HashSet<>();
 
+    public void add(Cart cart){
+        if (cart != null) {
+            if (carts == null) {
+                carts = new HashSet<>();
+            }
+            carts.add(cart);
+            cart.setCustomer(this);
+        }
+    }
 
 }

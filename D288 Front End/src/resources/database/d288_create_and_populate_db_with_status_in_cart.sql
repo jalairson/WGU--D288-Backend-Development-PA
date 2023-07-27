@@ -114,13 +114,13 @@ CREATE TABLE `excursion_cartitem` (
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 INSERT INTO countries
-VALUES 
+VALUES
   (1,	'U.S',	NOW(), NOW()),
   (2,	'UK',	NOW(), NOW()),
   (3,	'Canada',	NOW(), NOW());
-  
+
 INSERT INTO divisions
-VALUES 
+VALUES
   ('Alaska', 54, NOW(), NOW(), 1 ),
   ('Arizona', 02, NOW(), NOW(), 1 ),
   ('Arkansas', 03, NOW(), NOW(), 1 ),
@@ -192,15 +192,15 @@ VALUES
   ('Northern Ireland', 104, NOW(), NOW(), 2 );
 
 INSERT INTO `full-stack-ecommerce`.customers
-VALUES 
+VALUES
   ( 1, "123 Easy St", default, "John", "Doe", default, "(555)555-5555", "55555", 31 );
 
 INSERT INTO `full-stack-ecommerce`.carts
-VALUES 
+VALUES
   ( 0, 0, 1, 'pending', default, default, default, 1 );
 
 INSERT INTO `full-stack-ecommerce`.vacations
-VALUES 
+VALUES
     ( default, default, "Visit the beautiful country of Italy",
     "https://images.unsplash.com/photo-1515859005217-8a1f08870f59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1110&q=80",
     default, 1000,
@@ -234,9 +234,9 @@ VALUES
     default, 1500,
     "Wisconsin"
   );
-  
+
 INSERT INTO `full-stack-ecommerce`.excursions
-VALUES 
+VALUES
   ( default, default, 100, "Cheese Tour",
     "https://images.unsplash.com/photo-1631379578550-7038263db699?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1474&q=80",
     default, ( select vacation_id from vacations where vacation_title = "Italy"

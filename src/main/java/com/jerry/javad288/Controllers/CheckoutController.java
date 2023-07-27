@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 public class CheckoutController {
 
     private CheckoutService checkoutService;
-    @Autowired
-    public CheckoutController(CheckoutService checkoutService) {
 
+    public CheckoutController(CheckoutService checkoutService) {
+        this.checkoutService = checkoutService;
     }
 
     @PostMapping("/purchase")

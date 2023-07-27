@@ -2,6 +2,8 @@ package com.jerry.javad288.Entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,39 +14,40 @@ import java.util.Set;
 
 @Entity
 @Table(name = "carts")
-@Data
+@Getter
+@Setter
 public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Cart_ID")
+    @Column(name = "cart_id")
     private Long id;
 
-    @Column(name = "Order_Tracking_Number")
+    @Column(name = "order_tracking_number")
     private String orderTrackingNumber;
 
-    @Column(name = "Package_Price")
-    private BigDecimal packagePrice;
+    @Column(name = "package_price")
+    private BigDecimal package_price;
 
-    @Column(name = "Party_Size")
-    private int partySize;
+    @Column(name = "party_size")
+    private int party_size;
 
-    @Column(name = "Status")
+    @Column(name = "status")
     private StatusType status;
 
     @CreationTimestamp
-    @Column(name = "Create_Date")
-    private Date createDate;
+    @Column(name = "create_date")
+    private Date create_date;
 
     @UpdateTimestamp
-    @Column(name = "Last_Update")
-    private Date lastUpdate;
+    @Column(name = "last_update")
+    private Date last_update;
 
     @ManyToOne
-    @JoinColumn(name = "Customer_ID")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "carts")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
     private Set<CartItem> cartItems = new HashSet<>();
 
     public void add(CartItem item){

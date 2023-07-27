@@ -1,10 +1,12 @@
 package com.jerry.javad288.Services;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class PurchaseResponse {
 
-    private final String orderTrackingNumber;
+    //private final String orderTrackingNumber;
 
 }

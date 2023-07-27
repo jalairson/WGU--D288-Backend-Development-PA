@@ -1,6 +1,23 @@
 package com.jerry.javad288.Entities;
 
-public enum StatusType {
-    pending, ordered, cancelled
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
+public class StatusType {
+
+    CartStatus cartStatus;
+    public enum CartStatus{
+
+        pending, ordered, canceled
+
+    }
+
+    public StatusType(CartStatus cartStatus) {
+
+        this.cartStatus = cartStatus;
+
+    }
 
 }
+

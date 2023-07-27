@@ -3,6 +3,7 @@ package com.jerry.javad288.Services;
 import com.jerry.javad288.Entities.Cart;
 import com.jerry.javad288.Entities.CartItem;
 import com.jerry.javad288.Entities.Customer;
+import com.jerry.javad288.Entities.StatusType;
 import com.jerry.javad288.dao.CartRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 import java.util.UUID;
+
 
 @Service
 public class CheckoutServiceImpl implements CheckoutService{
@@ -31,6 +33,8 @@ public class CheckoutServiceImpl implements CheckoutService{
 
         Set<CartItem> cartItems = purchase.getCartItems();
         cartItems.forEach(item -> cart.add(item));
+
+        cart.setStatus(StatusType.CartStatus.ordered);
 
         Customer customer = purchase.getCustomer();
         customer.add(cart);

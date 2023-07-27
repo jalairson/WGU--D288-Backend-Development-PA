@@ -3,7 +3,7 @@ package com.jerry.javad288.Services;
 import com.jerry.javad288.Entities.Cart;
 import com.jerry.javad288.Entities.CartItem;
 import com.jerry.javad288.Entities.Customer;
-import com.jerry.javad288.dao.CustomerRepository;
+import com.jerry.javad288.dao.CartRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,11 +13,11 @@ import java.util.UUID;
 
 @Service
 public class CheckoutServiceImpl implements CheckoutService{
-
-    private CustomerRepository customerRepository;
+    private CartRepository cartRepository;
     @Autowired
-    public CheckoutServiceImpl(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
+    public CheckoutServiceImpl(CartRepository cartRepository)
+    {
+        this.cartRepository = cartRepository;
     }
 
     @Override
@@ -34,9 +34,9 @@ public class CheckoutServiceImpl implements CheckoutService{
 
         Customer customer = purchase.getCustomer();
         customer.add(cart);
-        customerRepository.save(customer);
+        cartRepository.save(cart);
 
-        return new PurchaseResponse();
+        return new PurchaseResponse(orderTrackingNumber);
     }
 
     private String generateOrderTrackingNumber() {

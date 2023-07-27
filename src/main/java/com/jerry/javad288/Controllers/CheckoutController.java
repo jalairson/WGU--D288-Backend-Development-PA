@@ -6,13 +6,13 @@ import com.jerry.javad288.Services.PurchaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin("HTTP://localhost:4200")
+@CrossOrigin
 @RestController
 @RequestMapping("/api/checkout")
 public class CheckoutController {
 
     private CheckoutService checkoutService;
-
+    @Autowired
     public CheckoutController(CheckoutService checkoutService) {
         this.checkoutService = checkoutService;
     }

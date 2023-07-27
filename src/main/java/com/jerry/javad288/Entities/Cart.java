@@ -1,7 +1,6 @@
 package com.jerry.javad288.Entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -32,8 +31,8 @@ public class Cart {
     @Column(name = "party_size")
     private int party_size;
 
-    @Column(name = "status")
-    private StatusType status;
+    //@Column(name = "status")
+    //private StatusType status;
 
     @CreationTimestamp
     @Column(name = "create_date")

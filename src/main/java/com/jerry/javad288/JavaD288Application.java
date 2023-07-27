@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JavaD288Application {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(JavaD288Application.class, args);
 
 	}
